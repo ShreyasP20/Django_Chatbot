@@ -6,7 +6,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 # Create your views here.
 
-genai.configure(api_key='Gemini_ApiKey')
+genai.configure(api_key='Gemini_API_Key')
 model = genai.GenerativeModel('gemini-pro')
 
 def chatbot(request):
@@ -55,4 +55,3 @@ def register(request):
 
 def logout(request):
     auth.logout(request)
-    return render(request, 'chabot/login.html')
