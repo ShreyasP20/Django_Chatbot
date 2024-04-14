@@ -6,14 +6,14 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 # Create your views here.
 
-genai.configure(api_key='AIzaSyB2ykTpIgDjPe59LxWAIw_6QYjLdwrmNAA')
+genai.configure(api_key='Gemini_ApiKey')
 model = genai.GenerativeModel('gemini-pro')
 
 def chatbot(request):
     if request.method == 'POST':
         message = request.POST.get('message')
         response = model.generate_content(message)
-        return JsonResponse({'message':message, 'response':response})
+        return JsonResponse({'message':message, 'response':response.text})
     return render(request, 'Chabot/chabot.html')
 
 def login(request):
@@ -55,3 +55,4 @@ def register(request):
 
 def logout(request):
     auth.logout(request)
+    return render(request, 'chabot/login.html')
