@@ -6,7 +6,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 # Create your views here.
 
-genai.configure(api_key='AIzaSyB2ykTpIgDjPe59LxWAIw_6QYjLdwrmNAA')
+genai.configure(api_key='Google_APIKEY')
 model = genai.GenerativeModel('gemini-pro')
 
 def chatbot(request):
